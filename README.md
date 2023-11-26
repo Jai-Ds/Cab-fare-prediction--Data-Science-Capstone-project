@@ -1,107 +1,81 @@
-# Cab-fare-prediction--Data-Science-Capstone-project
-Requirement is to apply analytics for fare prediction using historical data from the pilot project
-
-Please refer the Project Report_Cab_Rental for detailed explanation of the project.
-
-Train Data-
-
-With following variables
-
-pickup_datetime
-
-pickup_longitude
-
-pickup_latitude
-
-dropoff_longitude
-
-dropoff_latitude
-
-passenger_count
-
-Test-Data => Test data requiring fare prediction
-
-Original_with_fare&Dist_python.csv => Python predictions
-
-Original_with_fare_amount&Dist_R.csv => R predictions
-
-Project Report_Cab_Rental => Project report detailing the work done with visualisations.
-
-Project_2.ipynb => Pyhton code in jupyter notebook
-
-Project_2_R => R code
 
 
-Missing Value Analysis
+# Cab Fare Prediction - Data Science Capstone Project
 
-fare_amount            24
+This project aims to apply analytics for fare prediction using historical data from a pilot project.
 
-pickup_datetime        0
+## Files
 
-pickup_longitude       0
+- **Train Data:**
+  - Variables:
+    - `pickup_datetime`
+    - `pickup_longitude`
+    - `pickup_latitude`
+    - `dropoff_longitude`
+    - `dropoff_latitude`
+    - `passenger_count`
 
-pickup_latitude        0
+- **Test Data:**
+  - Test data requiring fare prediction
 
-dropoff_longitude      0
+- **Original Predictions:**
+  - Python Predictions: `Original_with_fare&Dist_python.csv`
+  - R Predictions: `Original_with_fare_amount&Dist_R.csv`
 
-dropoff_latitude       0
+- **Project Reports:**
+  - Detailed project report: `Project Report_Cab_Rental`
 
-passenger_count        55
+- **Code Files:**
+  - Python Code: `Project_2.ipynb`
+  - R Code: `Project_2_R`
+
+## Project Overview
+
+### Missing Value Analysis
+
+- Identified missing values in the dataset and addressed them.
+
+### Feature Engineering
+
+- Derived new variables (`Month`, `Year`, `Time (Hrs)`, `Day`, `Day/Night`) from the `pickup_datetime` variable.
+- Calculated `Distance_Km` using geographical coordinates.
+
+### Outlier Analysis
+
+- Filtered data based on reasonable thresholds for `passenger_count`, `fare_amount`, and `Distance_Km`.
+- Conducted boxplot analysis for outliers in specific variables.
+
+### Converted Variables
+
+- Converted specific variables (`passenger_count`, `Month`, `Year`, `Day`, `Day/Night`) into factor variables.
+
+### Dimensionality Reduction
+
+- Removed variables (`pickup_datetime`, `pickup_longitude`, `pickup_latitude`, `dropoff_longitude`, `dropoff_latitude`) based on heatmap analysis.
+
+### Dummy Variables (One Hot Encoding)
+
+- Created dummy variables for better analysis of specific factor variables (`Month`, `Year`, `Day`, `Day/Night`, `passenger_count`).
+
+### Machine Learning Models
+
+- Applied Linear Regression (LR) model in Python and Random Forest in R for fare prediction.
+
+## Usage
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd Cab-Fare-Prediction--Data-Science-Capstone-project
+   ```
+
+3. Explore the project files and reports for a detailed understanding.
+
+Feel free to refer to the `Project Report_Cab_Rental` for an in-depth explanation of the project.
 
 
-Total- 79 missing values. As it had a small percentage omitted the missing values.
-
-
-Feature Engineering
-
-Variables Month,Year,Time(Hrs), Day, Day/Night was derived from pickup_datetime variable.
-
-Month- Month of the cab rental.
-
-Year- Year of the cab rental.
-
-Time- Time of the cab rental.
-
-Day- To classify weekday or weekend cab rental.
-
-Day/Night- To classify whether the cab rental was carried on Sunlight/Moonlight.
-
-Using pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude varibales, Distance_Km was derived.
-
-Distance_Km- Distance travelled in KM.
-
-
-Outlier Analysis
-
-passenger_count was kept under 6 and greater than 0.
-
-fare_amount greater than 0 was taken.
-
-Distance_Km greater than 0 was taken.
-
-Boxplot outliers of the following variables 'pickup_longitude','dropoff_longitude','dropoff_latitude','fare_amount' was carried on.
-
-Converted the Variables to appropriate datatypes
-
-passenger_count, Month, Year, Day, Day/Night variables are converted into factor variables and other variables were kept in numeric. 
-
-Dimensionality Reduction
-
-From the heat map analysis, the following variables are omitted.
-
-'pickup_datetime','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude’ as they didn’t contribute much information 
-and has some collinearity with other variables.
- 
-From the above graph the Time in Hrs doesn’t have any peak hours as the the fare amount is equally distributed. Also, we have another 
-
-factor variable ‘Day/Night’ which gives us the info of sunlight and moonlight travel. Hence omitted the Time in Hrs variable.
-
-Creating Dummy Variables (One Hot Encoding)
-
-Created dummy variables for the following factor variables for better analysis.
-
-'Month','Year','Day','Day/Night','passenger_count'.
-
-From the error percentage of above analysis, LR model was applied on test.csv in python and Random Forest was applied on test.csv in R as they had the best accuracy respectively.
-
-Please refer the Project Report_Cab_Rental for detailed explanation of the project.
+**Note:** Adjust file paths and comments as needed for your project structure.
